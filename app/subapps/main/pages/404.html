@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set body_type = "not-found" %}
+{% block content %}
+<div id="jumbotron">
+	<div class="regular-container">
+		<div id="jumbotron-image"></div>
+		<div id="jumbotron-top">
+			<a href="/" class="logo">rev<font color="#B7D6F5">pro</font></a>
+		</div>
+	</div>
+</div>
+<div id="content">
+	<div class="regular-container">
+		<h1>{{ g.l['notfound_1'] }}</h1>
+		<p>{{ g.l['notfound_2'] }}</p>
+	</div>
+</div>
+{% endblock %}
