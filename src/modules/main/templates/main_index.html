@@ -1,0 +1,69 @@
+{% extends "main_base.html" %}
+{% set page_title = g.l['index_title'] %}
+{% set body_type = "frontpage" %}
+{% block content %}
+	{% from 'main_widgets.html' import widget_headlines %}
+	{% from 'main_widgets.html' import widget_twitter %}
+	<div id="jumbotron">
+		<div class="regular-container">
+			<div id="jumbotron-image"></div>
+			<div id="jumbotron-top">
+				<a href="/" class="logo small">HABBO</a>
+				<span class="signup-links" onclick="SiteHelper.openDialog('login-dialog')">
+					{{ g.l['index_jumbotron_1'] }} <i class="fi-torso"></i>
+				</span>
+			</div>
+			<div id="jumbotron-info">
+				<h1>{{ g.l['index_jumbotron_2'] }}</h1>
+				<h1>{{ g.l['index_jumbotron_3'] }}</h1>
+				 <p>{{ g.l['index_jumbotron_4'] }}</p>
+				 <p>{{ g.l['index_jumbotron_5'] }}</p>
+				<a class="button green" href="/user/signup" style="float:left; margin-top:20px;">
+					<span class="ribbon">{{ g.l['index_jumbotron_6'] }}</span>
+					{{ g.l['index_jumbotron_7'] }}
+				</a>
+				<span style="margin-left:10px;margin-top:30px;float:left;">
+					<i style="float:left">{{ g.l['index_jumbotron_8'] }}</i>
+					<a style="margin-left:10px;margin-top:-10px" class="button facebook-connect" onclick="SiteHelper.facebookLogin()">
+						<i class="fa fa-facebook" style="margin-right:10px"></i>{{ g.l['index_jumbotron_9'] }}
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<div class="regular-container">
+			<section style="width:56.5%">
+				<h1>
+				<i class="fa fa-university"></i> {{ g.l['index_content_1'] }}
+				</h1>
+				{{ widget_headlines(articles_data) }}
+				
+			</section>
+			<section style="width:43.5%">
+				{{ widget_twitter() }}
+			</section>
+		</div>
+	</div>
+	<div id="login-dialog" class="dialog">
+		<h1>{{ g.l['index_dialog_1'] }}</h1>
+		<div id="login-error" class="notice red dynamic"></div>
+		<form name="login_form">
+			<div class="field">
+				<span>{{ g.l['index_dialog_2'] }}</span>
+				<input type="text" name="username">
+			</div>
+			<div class="field">
+				<span>{{ g.l['index_dialog_3'] }}</span>
+				<input type="password" name="password">
+			</div>
+			<button type="submit" class="button blue small" onclick="event.preventDefault(); SiteHelper.login(this.form.elements['username'].value, this.form.elements['password'].value)">{{ g.l['index_dialog_4'] }}</button>
+			<div class="signup-link">{{ g.l['index_dialog_5'] }} <a href="/user/signup">{{ g.l['index_dialog_6'] }}</a></div>
+		</form>
+	</div>
+	<div id="fblogin-dialog" class="dialog">
+		<h1>{{ g.l['fb_link_required_h1'] }}</h1>
+		<p>{{ g.l['fb_link_required_p'] }}</p>
+		<a class="button blue" style="margin-top:10px; display:block" href="#" onclick="SiteHelper.openDialog('login-dialog')">{{ g.l['fb_link_required_button'] }}</a>
+	</div>
+{% endblock %}

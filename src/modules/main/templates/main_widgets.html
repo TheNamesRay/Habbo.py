@@ -1,0 +1,18 @@
+{% macro widget_headlines(items) -%}
+	<ul class="headlines">
+		{% for item in items %}
+			<li>
+			<a href="{{ url_for('main.article', slug=item[5]) }}" style="float:right; margin-top:30px">More &raquo;</a>
+				<h1>{{ item[1] }}</h1>
+				<p>{{ item[2] }}</p>
+			</li>
+		{% endfor %}
+	</ul>
+{%- endmacro %}
+
+{% macro widget_twitter() -%}
+
+<a class="twitter-timeline" href="https://twitter.com/KediAgbogre" data-widget-id="694548992898760704">Tweets by @KediAgbogre</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+{%- endmacro %}

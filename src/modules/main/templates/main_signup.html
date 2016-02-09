@@ -1,0 +1,76 @@
+{% extends "main_base.html" %}
+{% set page_title = g.l['signup_title'] %}
+{% set body_type = "signup" %}
+{% block content %}
+{% from 'main_widgets.html' import widget_twitter %}
+	<div id="jumbotron">
+		<div class="regular-container">
+			<div id="jumbotron-image" class="alt"></div>
+			<div id="jumbotron-top">
+				<a href="/" class="logo small">HABBO</a>
+				<span class="signup-links" onclick="SiteHelper.openDialog('login-dialog')">
+					{{ g.l['index_jumbotron_1'] }} <i class="fi-torso"></i>
+				</span>
+			</div>
+			<div id="jumbotron-info">
+				<h1>{{ g.l['signup_h1'] }}.</h1>
+				<p style="margin-top:10px">{{ g.l['signup_p'] }}</p>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<div class="regular-container">
+			<section style="width:58.5%; padding-left:0px">
+				<form autocomplete="off" novalidate onsubmit="event.preventDefault(); SiteHelper.register(this.elements['username'].value, this.elements['mail'].value, this.elements['password'].value, this.elements['passwordr'].value)">
+					<div class="field">
+						<span>{{ g.l['signup_field_1'] }}</span>
+						<input type="text" name="username">
+						<p></p>
+					</div>
+					<div class="field">
+						<span>{{ g.l['signup_field_2'] }}</span>
+						<input type="email" name="mail">
+						<p></p>
+					</div>
+					<div class="field">
+						<span>{{ g.l['signup_field_3'] }}</span>
+						<input type="password" name="password">
+						<p></p>
+					</div>
+					<div class="field">
+						<span>{{ g.l['signup_field_4'] }}</span>
+						<input type="password" name="passwordr">
+						<p></p>
+					</div>
+					<div class="field">
+						<span>Are you a Robot?</span>
+						<div class="g-recaptcha" data-sitekey="6Le0iBcTAAAAAKb2aqJs5Plv45u9sJN4P4Ykc_VQ"></div>
+					</div>
+					<div style="margin-top:40px">
+						<button class="button blue">{{ g.l['index_jumbotron_7'] }}</button>
+						<span style="float:right; margin-top:15px">{{ g.l['signup_already_1'] }} <a onclick="SiteHelper.openDialog('login-dialog')">{{ g.l['signup_already_2'] }}</a></span>
+					</div>
+				</form>
+			</section>
+			<section style="width:41.5%">
+				{{ widget_twitter() }}
+			</section>
+		</div>
+	</div>
+	<div id="login-dialog" class="dialog">
+		<h1>{{ g.l['index_dialog_1'] }}</h1>
+		<div id="login-error" class="notice red dynamic"></div>
+		<form name="login_form">
+			<div class="field">
+				<span>{{ g.l['index_dialog_2'] }}</span>
+				<input type="text" name="username">
+			</div>
+			<div class="field">
+				<span>{{ g.l['index_dialog_3'] }}</span>
+				<input type="password" name="password">
+			</div>
+			<button type="submit" class="button blue small" onclick="event.preventDefault(); SiteHelper.login(this.form.elements['username'].value, this.form.elements['password'].value)">{{ g.l['index_dialog_4'] }}</button>
+		</form>
+	</div>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "main_base.html" %}
+{% set body_type = "welcome" %}
+{% block content %}
+<div id="jumbotron">
+	<div class="regular-container">
+		<div id="jumbotron-image" class="alt"></div>
+		<div id="jumbotron-top">
+			<a href="/" class="logo small">HABBO</a>
+		</div>
+	</div>
+</div>
+<div id="content">
+	<div class="regular-container">
+		<h1>{{ g.l['welcome_h1'] }}</h1>
+		<p style="max-width:400px">{{ g.l['welcome_p'] }} <br /><br>
+	      {% with msgs = get_flashed_messages() %}
+        {% if msgs %}
+          {%- for msg in msgs %}
+            <span style="color:rgba(0,0,0,0.7)">{{ msg }}</span>
+          {% endfor -%}
+        {% endif %}
+      {% endwith %}</p>
+		<a class="button green" href="/home">{{ g.l['welcome_button'] }}</a>
+	</div>
+</div>
+{% endblock %}

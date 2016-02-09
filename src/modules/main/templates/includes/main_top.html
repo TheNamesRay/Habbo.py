@@ -1,0 +1,30 @@
+<div id="jumbotron">
+	<div class="regular-container">
+		<div id="jumbotron-image" class="alt"></div>
+		<a style="float:right; margin-top:25px;" class="button blue">PLAY NOW!</a>
+		<div id="jumbotron-top">
+			<a href="/" class="logo small">HABBO</a>
+		</div>
+	</div>
+</div>
+<div id="menu" style="border-top:none">
+	<div class="regular-container">
+		<ul>
+			<li class="special right">
+				{{ g.l['menu_acc'] }} <i style="margin-left:5px" class="fa fa-caret-down"></i>
+				<ul class="dropdown">
+					<li>{{ g.l['menu_acc_1'] }}</li>
+					<li>{{ g.l['menu_acc_2'] }}</li>
+					<a href="/logout"><li>{{ g.l['menu_acc_3'] }}</li></a>
+				</ul>
+			</li>
+			<a href="/home"><li {% if request.path == '/home' %}class="active"{% endif %}>{{ g.player['username'] }}</li></a>
+			<a href="/community"><li {% if request.path == '/community' %}class="active"{% endif %}>{{ g.l['menu_2'] }}</li></a>
+			<a href="/credits"><li {% if request.path == '/credits' %}class="active"{% endif %}>{{ g.l['menu_3'] }}</li></a>
+			<li>{{ g.l['menu_4'] }}</li>
+			{% if g.player['rank'] > 3 %}
+			<a href="/admin"><li class="out">{{ g.l['menu_hk'] }}</li></a>
+			{% endif %}
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+{% extends "main_base.html" %}
+{% set body_type = "homepage" %}
+{% block content %}
+	{% include 'includes/main_top.html' %}
+	{% from 'main_widgets.html' import widget_articles %}
+	{% from 'main_widgets.html' import widget_headlines %}
+	{% from 'main_widgets.html' import widget_twitter %}
+	<div id="content">
+		<div class="regular-container">
+			<section>
+				<h1>
+				<i class="fi-torso"></i> My Character
+				</h1>
+				<div class="userinfo">
+					<div class="userinfo-backdrop">
+						<a class="button green" style="float:right; margin-top:20px; margin-right:20px">PLAY HABBO</a>
+						<div class="userinfo-platform">
+							<img src="http://habbo.com/habbo-imaging/avatarimage?figure={{ g.player['look'] }}">
+						</div>
+					</div>
+					<div class="userinfo-bottom">
+						<span>{{ g.player['username'] }}</span>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h1>
+				<i class="fa fa-university"></i> {{ g.l['index_content_1'] }}
+				</h1>{{ widget_headlines(articles_data) }}
+			</section>
+		</div>
+	</div>
+{% endblock %}

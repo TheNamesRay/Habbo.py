@@ -1,0 +1,27 @@
+{% extends "main_base.html" %}
+{% set body_type = "maintenance" %}
+{% block content %}
+{% from 'main_widgets.html' import widget_twitter %}
+<div id="jumbotron">
+	<div class="regular-container">
+		<div id="jumbotron-image" class="alt"></div>
+		<div id="jumbotron-top">
+			<a href="/" class="logo small">HABBO</a>
+		</div>
+	</div>
+</div>
+<div id="content">
+<div class="regular-container">
+
+	
+		<div style="width:350px; float:right">
+		{{ widget_twitter() }}
+		</div>
+
+		<h1>{{ g.l['maint_h1'] }}</h1>
+		<p style="max-width:400px">{{ g.l['maint_p'] }}</p>
+	
+		
+	</div>
+</div>
+{% endblock %}

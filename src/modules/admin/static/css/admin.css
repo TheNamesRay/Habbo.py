@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+html {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #292929;
+	background-color: #7cc2d3;
+}
+
+a,
+a:visited {
+	cursor: pointer !important;
+	color: #215663;
+	text-decoration: underline;
+}
+
+h2 {
+	margin-bottom: 2px;
+	color: #1d778d;
+	font-size: 21px;
+}

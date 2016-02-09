@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>
+		Habbo: {{ page_title }}
+		</title>
+		<link rel="stylesheet" href="{{url_for('main.static', filename='css/main.css')}}">
+		<link rel="icon" href="{{url_for('main.static', filename='favicon.ico')}}">
+	</head>
+	<body class="{{ body_type }}">
+		<div id="wrapper">
+			{% block content %}
+			{% endblock %}
+		</div>
+		<footer>
+			<div class="regular-container">
+				<section class="top">
+					<span class="footer-links">{{ g.l['footer_1'] }} / {{ g.l['footer_2'] }} / {{ g.l['footer_3'] }}</span>
+					<span class="footer-languages">
+						<a href="/locale/en_US" {% if g.ln == 'en_US' %} class="active" {% endif %}>EN</a> /
+						<a href="/locale/es_ES" {% if g.ln == 'es_ES' %} class="active" {% endif %}>ES</a>
+					</span>
+				</section>
+				<section>
+					<span class="footer-copyright">
+						<p><span style="color:rgba(0,0,0,0.6); font-weight:600">&copy; HABBO HOTEL NETWORKS 2016</span><br>Habbo is neither operated by nor affiliated with Sulake Corporation Inc.</p>
+					</span>
+				</section>
+			</div>
+		</footer>
+		<script src="{{url_for('main.static', filename='js/vendor/ajax.js')}}"></script>
+		<script src="{{url_for('main.static', filename='js/main.js')}}"></script>
+		<div id="fb-root"></div>
+		<script src="http://connect.facebook.net/en_US/all.js"></script>
+		<script>
+			FB.init({
+				appId  : '{{ config["FACEBOOK_APP_ID"] }}',
+				status : true,
+				cookie : true,
+				xfbml  : true
+			});
+			var SiteHelper = new SiteHelper();
+		</script>
+	</body>
+	<div id="overlay" onclick="SiteHelper.resetDialogs()"></div>
+</html>
