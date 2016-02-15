@@ -6,4 +6,3 @@ Dependencies
 * Flask 
 * Flask-Mysql
 
-![Alt text](http://i.imgur.com/tzwekX1.png "Made with RevPro theme by Nominal")
