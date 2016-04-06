@@ -1,11 +1,11 @@
-"""The Site's locale variables.
+﻿"""The Site's locale variables.
 
 Attributes
 ----------
 locale : dict
     All of the locale variables.
 """
-# coding=utf-8
+# -*- coding: utf-8 -*-
 
 locale = {
     'en_US': {
